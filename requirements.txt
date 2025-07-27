@@ -1,0 +1,14 @@
+langgraph
+langsmith
+langchain
+langchain_community
+langchain_groq
+pandas
+openpyxl
+fastapi
+uvicorn
+firebase-admin
+faker
+redis
+pymysql
+sqlglot
