@@ -6,7 +6,6 @@ from typing import Optional
 from src.main_logger import logger
 from services.chat import router
 from services.util_services import util_router
-from services.load_chat import websocket_endpoint
 
 app = FastAPI()
 IGNORE = ["/ping"]
@@ -40,12 +39,12 @@ async def check_session(request: Request, call_next):
     return response
 
 
-@app.websocket("/ws/{session_id}")
-async def ws_endpoint(websocket: WebSocket, session_id: str):
-    try:
-        await websocket_endpoint(websocket, session_id)
-    except Exception as e:
-        logger.exception(f"error in ws endpoint main {e}")
+# @app.websocket("/ws/{session_id}")
+# async def ws_endpoint(websocket: WebSocket, session_id: str):
+#     try:
+#         await websocket_endpoint(websocket, session_id)
+#     except Exception as e:
+#         logger.exception(f"error in ws endpoint main {e}")
 
 @app.get("/ping")
 async def ping(request: Request):
